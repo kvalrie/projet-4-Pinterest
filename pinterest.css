@@ -1,0 +1,14 @@
+header{
+	background-color: #36465D;
+}
+
+.logo{
+
+	width: 200px;
+
+}
+form{
+	display: inline-block;
+	float: right;
+	margin: 20.625px 20.625px 20.625px 20.625px;
+}
