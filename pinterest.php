@@ -1,33 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<link rel="stylesheet" href="pinterest.css">
-	<meta charset="UTF-8">
-	<title>Pinterest</title>
+<head>  
+
+		<link rel="stylesheet" href="./Remodal-1.1.1/dist/remodal.css">
+		<link rel="stylesheet" href="./Remodal-1.1.1/dist/remodal-default-theme.css">
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" href="pinterest.css">
+		
+		<meta charset="UTF-8">
+		<title>Pinterest</title>
 </head>
 <body>
-<header>
 	<header>
 		<div>
+			
 			<img class="logo" src="logo.png">
+			
 			<form class="form-inline" method="post" action="pinterest.php" enctype="multipart/form-data"	>
 				
 				<input type="file" name="image" class="form-control input-lg" id="image">
     			<input type="submit" class="btn btn-primary btn-lg" value="Upload Image" name="submit">
 	    		
 			
+				
 				<button type="button" class="btn btn-success btn-lg">Success</button>
+			
 			</form>
+
 		</div>
 	</header>
 
 
-
-</header>
-
-<div class="grid" data-isotope='{ "itemSelector": ".grid-item", "masonry": { "columnWidth": 200 } }'>
+<section >
+<div class="grid  remodal-bg" data-isotope='{ "itemSelector": ".grid-item", "masonry": { "columnWidth": 200, "fitWidth": true } }'>
 	<?php
 
 	require 'src/claviska/SimpleImage.php';
@@ -71,14 +77,18 @@ if (isset($_POST['submit'] )) {
 
 							foreach($imgaff as $img) {
 
-							echo ' <div  class="grid-item">
-							<img src="fichierdefinitif/'.$img.'" alt="..." class="img-thumbnail" class="img-responsive" >
-							</div>';
+							echo '  <div  class="grid-item" >
+										<a href="#" data-remodal-target="'.$img.'"><img src="fichierdefinitif/'.$img.'" alt="..." class="img-thumbnail" class="img-responsive" >
+									</div> 
+									<div class="remodal" data-remodal-id="'.$img.'" role="dialog" aria-labelledby="modal1Title" aria-describedby="modal1Desc">
+									<button data-remodal-action="close" class="remodal-close" aria-label="Close"></button>
+									<img src="fichierdefinitif/'.$img.'"> 
+							 		</div> ' ;
 
 
 						//SIMPLEIMAGE
-						$maxWidth=350;	
-						$maxHeight=350;
+						$maxWidth=250;	
+						$maxHeight=400;
 
 							$Simple_image = new \claviska\SimpleImage(); 
 
@@ -103,6 +113,9 @@ if (isset($_POST['submit'] )) {
 
 
 ?>
-</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="./Remodal-1.1.1/dist/remodal.js"></script>
+		<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
 </body>
 </html>

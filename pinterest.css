@@ -1,5 +1,6 @@
 header{
 	background-color: #36465D;
+
 }
 
 .logo{
@@ -11,4 +12,14 @@ form{
 	display: inline-block;
 	float: right;
 	margin: 20.625px 20.625px 20.625px 20.625px;
+}
+
+.grid-item img{
+
+	margin: 0;
+	border:1px solid black;
+}
+section{
+
+	margin: 25px;
 }
